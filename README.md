@@ -50,7 +50,3 @@ src/
 ## Dados
 
 As consultas são realizadas diretamente nos endpoints públicos do PNCP. O Radar PNCP não mantém uma cópia própria dos resultados consultados.
-
-## Desenvolvimento
-
-Arquivos gerados localmente, dependências e variáveis de ambiente estão excluídos pelo `.gitignore`.
