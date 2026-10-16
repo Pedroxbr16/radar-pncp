@@ -1,16 +1,59 @@
+@import "@govbr-ds/core/dist/core-tokens.css";
 @import "tailwindcss";
 
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #172320;
-  background: #f6f7f4;
+  font-family: Rawline, Raleway, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--gray-90);
+  background: var(--gray-3);
   font-synthesis: none;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; }
+body { margin: 0; min-width: 320px; overflow-x: hidden; }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
+summary { overflow-wrap: anywhere; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  color: #e2e8f0;
+  background: #0b1220;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] main { background: #0b1220 !important; }
+
+:root[data-theme="dark"] .bg-white { background-color: #111c2e !important; }
+:root[data-theme="dark"] .bg-stone-50,
+:root[data-theme="dark"] .bg-stone-100 { background-color: #172235 !important; }
+:root[data-theme="dark"] .bg-stone-50\/70 { background-color: rgb(23 34 53 / .7) !important; }
+
+:root[data-theme="dark"] .border-stone-100,
+:root[data-theme="dark"] .border-stone-200,
+:root[data-theme="dark"] .border-stone-300 { border-color: #314158 !important; }
+:root[data-theme="dark"] .border-emerald-100 { border-color: #285747 !important; }
+
+:root[data-theme="dark"] .text-slate-900,
+:root[data-theme="dark"] .text-slate-800 { color: #f1f5f9 !important; }
+:root[data-theme="dark"] .text-slate-700 { color: #d8e1ec !important; }
+:root[data-theme="dark"] .text-slate-600 { color: #bac7d8 !important; }
+:root[data-theme="dark"] .text-slate-500,
+:root[data-theme="dark"] .text-slate-400 { color: #93a4ba !important; }
+:root[data-theme="dark"] .text-stone-500 { color: #a7b3c3 !important; }
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select { color: #e2e8f0; }
+:root[data-theme="dark"] input::placeholder { color: #8190a4; }
+:root[data-theme="dark"] option { background: #172235; color: #e2e8f0; }
+
+:root[data-theme="dark"] .bg-emerald-50 { background-color: #143c32 !important; }
+:root[data-theme="dark"] .bg-amber-50 { background-color: #473616 !important; }
+:root[data-theme="dark"] .bg-blue-50 { background-color: #172f54 !important; }
+:root[data-theme="dark"] .bg-red-50 { background-color: #4a2027 !important; }
+:root[data-theme="dark"] .bg-slate-100 { background-color: #26364c !important; }
+
+:root[data-theme="dark"] .shadow-xl,
+:root[data-theme="dark"] .shadow-\[0_1px_2px_rgba\(20\,34\,30\,\.04\)\] { box-shadow: 0 12px 30px rgb(0 0 0 / .28) !important; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(8px); }
@@ -18,3 +61,165 @@ button { cursor: pointer; }
 }
 
 .fade-up { animation: fade-up .45s ease-out both; }
+
+/* Camada visual baseada nos tokens oficiais do Design System gov.br. */
+.govbr-app {
+  --app-primary: var(--blue-warm-vivid-70);
+  --app-primary-hover: var(--blue-warm-vivid-80);
+  --app-focus: var(--blue-warm-vivid-40);
+  --app-surface: var(--gray-1);
+  --app-border: var(--gray-20);
+  background: var(--gray-3) !important;
+  color: var(--gray-90);
+  font-family: Rawline, Raleway, ui-sans-serif, system-ui, sans-serif;
+}
+
+.govbr-app :is(button, a, input, select, summary):focus-visible {
+  outline: 3px solid var(--app-focus);
+  outline-offset: 2px;
+}
+
+.govbr-header,
+.govbr-hero {
+  background: var(--blue-warm-vivid-90) !important;
+}
+
+.govbr-header {
+  border-bottom: 0 !important;
+  position: relative;
+  z-index: 20;
+}
+.govbr-brand-symbol { background: var(--yellow-vivid-20) !important; color: var(--blue-warm-vivid-90) !important; }
+.govbr-hero > div:first-child { background: var(--blue-warm-vivid-60) !important; }
+.govbr-hero p { color: var(--blue-warm-vivid-10); }
+
+.govbr-tabs { border-color: rgb(var(--blue-warm-vivid-20-rgb) / .38) !important; background: rgb(var(--blue-warm-vivid-80-rgb) / .55) !important; }
+.govbr-tab[aria-selected="true"] { color: var(--blue-warm-vivid-80) !important; }
+.govbr-tab[aria-selected="false"] { color: var(--blue-warm-vivid-10) !important; }
+.govbr-header .govbr-tab[aria-selected="true"] {
+  background: var(--gray-1) !important;
+  color: var(--blue-warm-vivid-90) !important;
+  box-shadow: 0 1px 2px rgb(0 0 0 / .18) !important;
+}
+.govbr-header .govbr-tab[aria-selected="false"] { color: var(--blue-warm-vivid-10) !important; }
+.govbr-header .govbr-tab[aria-selected="false"]:hover { background: rgb(var(--blue-warm-vivid-60-rgb) / .38) !important; color: #fff !important; }
+.govbr-panel .govbr-tabs { background: var(--gray-5) !important; border-color: var(--gray-20) !important; }
+.govbr-panel .govbr-tab[aria-selected="false"] { color: var(--gray-60) !important; }
+
+.govbr-panel,
+.govbr-card {
+  background: var(--app-surface) !important;
+  border-color: var(--app-border) !important;
+  box-shadow: 0 2px 8px rgb(0 0 0 / .12) !important;
+}
+
+.govbr-card:hover {
+  border-color: var(--blue-warm-vivid-40) !important;
+  box-shadow: 0 8px 20px rgb(var(--blue-warm-vivid-80-rgb) / .16) !important;
+}
+
+.govbr-tag-editor {
+  background: var(--gray-2) !important;
+  border-color: var(--gray-20) !important;
+}
+
+.govbr-tag-editor:focus-within {
+  border-color: var(--app-primary) !important;
+  box-shadow: 0 0 0 3px rgb(var(--blue-warm-vivid-30-rgb) / .65) !important;
+}
+
+.govbr-tag { background: var(--blue-warm-vivid-10) !important; color: var(--blue-warm-vivid-80) !important; }
+.govbr-tag button { color: var(--blue-warm-vivid-70) !important; }
+.govbr-tag button:hover { background: var(--blue-warm-vivid-20) !important; color: var(--blue-warm-vivid-90) !important; }
+
+.govbr-card-pill { border: 1px solid transparent; }
+.govbr-card-pill-open,
+.govbr-card-pill-current { background: #d9f7ee !important; border-color: #8edec4; color: #075b47 !important; }
+.govbr-card-pill-current > span { background: #008a5a !important; }
+.govbr-card-pill-neutral,
+.govbr-adhesion-no,
+.govbr-adhesion-unknown { background: var(--blue-warm-vivid-5) !important; border-color: var(--blue-warm-vivid-20); color: var(--blue-warm-vivid-80) !important; }
+.govbr-card-pill-future { background: var(--blue-warm-vivid-10) !important; border-color: var(--blue-warm-vivid-30); color: var(--blue-warm-vivid-80) !important; }
+.govbr-card-pill-warning,
+.govbr-adhesion-yes { background: #fff4ce !important; border-color: #f5c84c; color: #6d4a00 !important; }
+.govbr-card-pill-cancelled { background: #ffe4e7 !important; border-color: #f7a9b4; color: #9c1c30 !important; }
+
+.govbr-primary-button {
+  background: var(--app-primary) !important;
+  color: #fff !important;
+  border: 1px solid var(--app-primary) !important;
+}
+
+.govbr-primary-button:hover:not(:disabled) { background: var(--app-primary-hover) !important; border-color: var(--app-primary-hover) !important; }
+
+.govbr-secondary-button {
+  color: var(--blue-warm-vivid-70) !important;
+  border-color: var(--blue-warm-vivid-70) !important;
+}
+
+.govbr-secondary-button:hover:not(:disabled) { background: var(--blue-warm-vivid-5) !important; color: var(--blue-warm-vivid-80) !important; }
+.govbr-icon-button { border-color: rgb(var(--blue-warm-vivid-10-rgb) / .55) !important; }
+
+.govbr-panel select:focus,
+.govbr-panel input:not([type="checkbox"]):focus {
+  border-color: var(--app-primary) !important;
+  box-shadow: 0 0 0 3px rgb(var(--blue-warm-vivid-30-rgb) / .65) !important;
+}
+
+.govbr-panel .text-emerald-700,
+.govbr-card a,
+.govbr-footer a,
+.govbr-card summary { color: var(--blue-warm-vivid-70) !important; }
+
+.govbr-adhesion-toggle {
+  background: var(--blue-warm-vivid-5) !important;
+  border-color: var(--blue-warm-vivid-20) !important;
+}
+
+.govbr-checkbox { accent-color: var(--blue-warm-vivid-70); }
+.govbr-adhesion-title { color: var(--blue-warm-vivid-80) !important; }
+.govbr-adhesion-description { color: var(--gray-60) !important; }
+
+.govbr-summary-pill { border: 1px solid transparent; }
+.govbr-summary-candidate { background: var(--blue-warm-vivid-5) !important; border-color: var(--blue-warm-vivid-20); color: var(--blue-warm-vivid-80) !important; }
+.govbr-summary-expiring { background: #fff4ce !important; border-color: #f5c84c; color: #6d4a00 !important; }
+.govbr-summary-future { background: var(--blue-warm-vivid-10) !important; border-color: var(--blue-warm-vivid-30); color: var(--blue-warm-vivid-80) !important; }
+
+.govbr-footer { border-color: var(--gray-20) !important; }
+
+:root[data-theme="dark"] .govbr-app {
+  --app-surface: #111c2e;
+  --app-border: #314158;
+  background: #0b1220 !important;
+  color: #e2e8f0;
+}
+
+:root[data-theme="dark"] .govbr-panel,
+:root[data-theme="dark"] .govbr-card,
+:root[data-theme="dark"] .govbr-footer { background: #111c2e !important; }
+
+:root[data-theme="dark"] .govbr-tag-editor { background: #172235 !important; border-color: #314158 !important; }
+:root[data-theme="dark"] .govbr-tabs { background: #172235 !important; border-color: #314158 !important; }
+:root[data-theme="dark"] .govbr-panel .govbr-tab[aria-selected="false"] { color: #bac7d8 !important; }
+:root[data-theme="dark"] .govbr-header .govbr-tab[aria-selected="true"] { background: var(--gray-1) !important; color: var(--blue-warm-vivid-90) !important; }
+:root[data-theme="dark"] .govbr-adhesion-toggle { background: rgb(var(--blue-warm-vivid-70-rgb) / .25) !important; border-color: rgb(var(--blue-warm-vivid-30-rgb) / .55) !important; }
+:root[data-theme="dark"] .govbr-adhesion-title { color: #fff !important; }
+:root[data-theme="dark"] .govbr-adhesion-description { color: #d4e5ff !important; }
+:root[data-theme="dark"] .govbr-summary-candidate { background: #123c32 !important; border-color: #2f7d66 !important; color: #c4f4df !important; }
+:root[data-theme="dark"] .govbr-summary-expiring { background: #4b3710 !important; border-color: #a87510 !important; color: #ffdc7c !important; }
+:root[data-theme="dark"] .govbr-summary-future { background: #173b72 !important; border-color: #4d88e8 !important; color: #d4e5ff !important; }
+:root[data-theme="dark"] .govbr-card-pill-open,
+:root[data-theme="dark"] .govbr-card-pill-current { background: #123c32 !important; border-color: #2f7d66 !important; color: #c4f4df !important; }
+:root[data-theme="dark"] .govbr-card-pill-current > span { background: #37d39b !important; }
+:root[data-theme="dark"] .govbr-card-pill-neutral,
+:root[data-theme="dark"] .govbr-adhesion-no,
+:root[data-theme="dark"] .govbr-adhesion-unknown { background: #243750 !important; border-color: #415f85 !important; color: #d8e7fb !important; }
+:root[data-theme="dark"] .govbr-card-pill-future { background: #173b72 !important; border-color: #4d88e8 !important; color: #d4e5ff !important; }
+:root[data-theme="dark"] .govbr-card-pill-warning,
+:root[data-theme="dark"] .govbr-adhesion-yes { background: #4b3710 !important; border-color: #a87510 !important; color: #ffdc7c !important; }
+:root[data-theme="dark"] .govbr-card-pill-cancelled { background: #4a2027 !important; border-color: #a8495a !important; color: #ffd7de !important; }
+:root[data-theme="dark"] .govbr-card a,
+:root[data-theme="dark"] .govbr-card summary { color: var(--blue-warm-vivid-20) !important; }
+:root[data-theme="dark"] .govbr-card a:hover,
+:root[data-theme="dark"] .govbr-card summary:hover { color: #fff !important; }
+:root[data-theme="dark"] .govbr-card summary::marker { color: #37d39b; }

@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Radar de contratações públicas com dados ao vivo do PNCP." />
+    <link rel="stylesheet" href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('radar-pncp-theme')
+        document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark'
+          ? savedTheme
+          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      } catch (_) {}
+    </script>
     <title>Radar PNCP</title>
   </head>
   <body>

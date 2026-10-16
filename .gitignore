@@ -1,0 +1,19 @@
+# Dependencies and package-manager cache
+node_modules/
+.npm/
+
+# Generated application files
+dist/
+.vite/
+.site-artifact.tgz
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Tooling and operating-system files
+.DS_Store
+*.log
+coverage/
